@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Portal</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div class="portal">
+
+    <!-- Left Section -->
+    <div class="portal-left">
+        <h1>Student Portal</h1>
+        <p>
+            Register to access the Lost & Found system,
+            submit queries, and track status securely
+            through your student dashboard.
+        </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="portal-right">
+        <div class="form-card">
+            <h2>Create Student Account</h2>
+
+            <form>
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Admission Number" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" placeholder="College Email ID" required>
+                </div>
+
+                <div class="input-box">
+                    <select required>
+                        <option value="" disabled selected hidden>Select Department</option>
+                        <option value="cse-core">CSE (Core)</option>
+                        <option value="cse-ds">CSE (Data Science)</option>
+                        <option value="cse-aiml">CSE (AI & ML)</option>
+                        <option value="ee">Electronics Engineering</option>
+                        <option value="me">Mechanical Engineering</option>
+                        <option value="me">Information Technology</option>
+
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <select required>
+                        <option value="" disabled selected hidden>Select Year</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Create Password" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+
+                <button class="btn" type="submit">Register</button>
+
+                <div class="footer-text">
+                    Already have an account?
+                    <a href="login.html">Login here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

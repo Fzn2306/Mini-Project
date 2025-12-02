@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost & Found | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-logo">LF</div>
+            <div class="brand-text">
+                <h1>Lost & Found</h1>
+                <span>Student Portal</span>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <p>Navigation</p>
+            <ul class="nav-list">
+                <li><a class="nav-link active" data-tab="tab-all"><span class="icon"></span>All Items</a></li>
+                <li><a class="nav-link" data-tab="tab-lost"><span class="icon"></span>Lost Items</a></li>
+                <li><a class="nav-link" data-tab="tab-found"><span class="icon"></span>Found Items</a></li>
+                <li><a class="nav-link" data-tab="tab-recovered"><span class="icon"></span>Recovered</a></li>
+                <li><a class="nav-link" data-tab="tab-post"><span class="icon"></span>Post Item</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <strong>Reminder</strong>
+            Please post only genuine items with correct details. Misuse of the portal may lead to disciplinary action.
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+
+        <div class="main-header">
+            <div class="main-title">
+                <h2>Lost & Found Dashboard</h2>
+                <p>View reported items, mark recovered ones, and post new lost/found items.</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search items by name, location...">
+                    <span>🔎</span>
+                </div>
+                <div class="user-chip">
+                    <div class="user-avatar">ST</div>
+                    <span>Student User</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <div class="filter-bar-left">
+                <span class="filter-pill">Campus Lost & Found</span>
+                <span>Updated live by students & admin.</span>
+            </div>
+            <div class="filter-select">
+                <select id="statusFilter">
+                    <option value="all">Filter: All statuses</option>
+                    <option value="lost">Lost only</option>
+                    <option value="found">Found only</option>
+                    <option value="recovered">Recovered only</option>
+                </select>
+            </div>
+            <button class="primary-btn" data-tab-trigger="tab-post">+ Post New Item</button>
+        </div>
+
+        <section id="tab-all" class="tab-panel active">
+            <div class="cards-grid" id="allItemsGrid">
+
+                
+                <article class="item-card" data-status="lost">
+                    <div class="item-image">
+                        <span>🎒</span>
+                    </div>
+                    <div class="item-body">
+                        <div>
+                            <div class="item-header">
+                                <div class="item-title">Black Backpack</div>
+                                <div class="item-status-badge badge-lost">Lost</div>
+                            </div>
+                            <div class="item-meta">
+                                <span>📍 Near Library Block A</span>
+                                <span>📅 27 Nov 2025</span>
+                            </div>
+                            <div class="item-desc">
+                                Contains notebooks, a blue water bottle, and ID card. If found, please do not open the bag.
+                            </div>
+                        </div>
+                        <div class="item-footer">
+                            <span>Contact: 2023CS001</span>
+                            <button class="ghost-btn">I’ve seen this</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="item-card" data-status="found">
+                    <div class="item-image">
+                        <span>📱</span>
+                    </div>
+                    <div class="item-body">
+                        <div>
+                            <div class="item-header">
+                                <div class="item-title">Red Redmi Phone</div>
+                                <div class="item-status-badge badge-found">Found</div>
+                            </div>
+                            <div class="item-meta">
+                                <span>📍 Boys Hostel Gate</span>
+                                <span>📅 29 Nov 2025</span>
+                            </div>
+                            <div class="item-desc">
+                                Phone found near the hostel gate. Locked screen with wallpaper of a mountain. Currently with the hostel warden.
+                            </div>
+                        </div>
+                        <div class="item-footer">
+                            <span>Collect from Warden Office</span>
+                            <button class="ghost-btn">Claim Instructions</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="item-card" data-status="recovered">
+                    <div class="item-image">
+                        <span>💳</span>
+                    </div>
+                    <div class="item-body">
+                        <div>
+                            <div class="item-header">
+                                <div class="item-title">College ID Card</div>
+                                <div class="item-status-badge badge-recovered">Recovered</div>
+                            </div>
+                            <div class="item-meta">
+                                <span>📍 Canteen Area</span>
+                                <span>📅 25 Nov 2025</span>
+                            </div>
+                            <div class="item-desc">
+                                ID card of 2022IT045 recovered and handed over to the owner. Marked as resolved.
+                            </div>
+                        </div>
+                        <div class="item-footer">
+                            <span>Status: Closed</span>
+                            <button class="ghost-btn">View Details</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="empty-state" id="allEmptyState" style="display:none;">
+                <strong>No items match your filter/search.</strong>
+                Try clearing filters or search with a different keyword.
+            </div>
+        </section>
+
+        <section id="tab-lost" class="tab-panel">
+            <div class="cards-grid" id="lostItemsGrid">
+            </div>
+            <div class="empty-state" id="lostEmptyState">
+                <strong>No lost items listed yet.</strong>
+                If you have lost something, please post it from the “Post Item” tab.
+            </div>
+        </section>
+
+        <section id="tab-found" class="tab-panel">
+            <div class="cards-grid" id="foundItemsGrid">
+            </div>
+            <div class="empty-state" id="foundEmptyState">
+                <strong>No found items reported yet.</strong>
+                If you have found something, please post it so the owner can reach you.
+            </div>
+        </section>
+
+        <section id="tab-recovered" class="tab-panel">
+            <div class="cards-grid" id="recoveredItemsGrid">
+            </div>
+            <div class="empty-state" id="recoveredEmptyState">
+                <strong>No items marked as recovered.</strong>
+                Once an item is returned to its owner, it can be marked as recovered here.
+            </div>
+        </section>
+
+        <section id="tab-post" class="tab-panel">
+            <div class="form-card">
+                <h3 style="font-size:18px; margin-bottom:4px;">Post Lost / Found Item</h3>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+                    Fill in the details below. Items posted here will appear in the All / Lost / Found tabs.
+                </p>
+
+                <form id="postItemForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Item Status <span class="required">*</span></label>
+                            <select id="itemStatus" required>
+                                <option value="lost">Lost</option>
+                                <option value="found">Found</option>
+                                <option value="recovered">Recovered</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Item Name / Title <span class="required">*</span></label>
+                            <input type="text" id="itemTitle" placeholder="e.g. Black Wallet, Laptop Charger" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Where was it lost/found? <span class="required">*</span></label>
+                            <input type="text" id="itemLocation" placeholder="e.g. CSE Block, Canteen, Hostel Gate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date <span class="required">*</span></label>
+                            <input type="date" id="itemDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Short Description <span class="required">*</span></label>
+                            <textarea id="itemDescription" placeholder="Colour, brand, any unique marks or details..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Contact Details <span class="required">*</span></label>
+                            <input type="text" id="itemContact" placeholder="Roll no / phone / hostel room" required>
+                            <div class="hint">Share only the contact info you are comfortable with.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Upload Photo (optional)</label>
+                            <input type="file" id="itemImage" accept="image/*">
+                            <div class="hint">A clear image helps others identify the item quickly.</div>
+
+                            <div class="image-preview" id="imagePreview">
+                                <img src="" alt="Item Preview" id="previewImg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="button" class="secondary-btn" id="clearFormBtn">Clear</button>
+                        <button type="submit" class="primary-btn">Post Item</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+ <script src="dashboard.js"></script>
+</body>
+</html>
